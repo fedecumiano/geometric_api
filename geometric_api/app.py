@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, jsonify, request
 from geometric_api.schemas import deserialize
 from geometric_api.services.sum import operations
 
@@ -22,7 +22,7 @@ def adding():
     result = operation(figures)
 
     # --- Serialize Output
-    return str(result)
+    return jsonify({"result": result, "type": query})
 
 
 if __name__ == '__main__':

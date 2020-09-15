@@ -29,18 +29,16 @@ class Circle(Figure):
 @dataclass
 class Triangle(Figure):
 
-    side1: float
-    side2: float
-    side3: float
+    sides: list
 
     def calculate_area(self):
-        s = (self.side1 + self.side2 + self.side3) / 2
-        area = (s * (s - self.side1) * (s - self.side2) *
-                (s - self.side3))**0.5
+        s = (self.sides[0] + self.sides[1] + self.sides[2]) / 2
+        area = (s * (s - self.sides[0]) * (s - self.sides[1]) *
+                (s - self.sides[2]))**0.5
         return area
 
     def calculate_perimeter(self):
-        return self.side1 + self.side2 + self.side3
+        return self.sides[0] + self.sides[1] + self.sides[2]
 
 
 @dataclass

@@ -19,9 +19,12 @@ class TriangleSchema(Schema):
         unknown = EXCLUDE
 
     name = fields.Str()
+    sides = fields.List(fields.Float)
+    """
     side1 = fields.Float()
     side2 = fields.Float()
     side3 = fields.Float()
+    """
 
     @post_load
     def make_circle(self, data, **kwargs):
